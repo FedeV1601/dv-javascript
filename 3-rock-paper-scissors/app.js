@@ -20,8 +20,12 @@ function startGame(event) {
   const winner = setWinner(playerChoice, computerChoice);
 
   // Mostrar resultado
+ 
   playerChoiceElement.setAttribute("src", `imgs/${playerChoice}.png`);
   computerChoiceElement.setAttribute("src", `imgs/${computerChoice}.png`);
+  mostrarContador();
+
+
 
   // const result = playerWins ? "GANASTE" : "PERDISTE";
 
@@ -45,7 +49,6 @@ function getComputerChoice() {
   // Retornar elección
   return possibleChoices[computerChoice];
 }
-
 // Antes: isPlayerWinner
 function setWinner(playerChoice, computerChoice) {
   console.log("playerChoice", playerChoice);
@@ -54,11 +57,51 @@ function setWinner(playerChoice, computerChoice) {
     (playerChoice === "rock" && computerChoice === "scissors") ||
     (playerChoice === "paper" && computerChoice === "rock") ||
     (playerChoice === "scissors" && computerChoice === "paper")
-  ) {
-    return "GANASTE";
-  } else if (playerChoice === computerChoice) {
-    return "EMPATASTE";
-  } else {
-    return "PERDISTE";
+    ) {
+      
+      contPlayerWins++;
+      mostrarContadorPartidas();
+      return document.querySelector("#result").innerHTML = `You won with ${playerChoice} against ${computerChoice}`;
+    } else if (playerChoice === computerChoice) {
+      
+      contDraws++;
+      return document.querySelector("#result").innerHTML = `You draw with ${playerChoice} against ${computerChoice}`;
+    } else {
+      contPcWins++;
+      mostrarContadorPartidas();
+      return document.querySelector("#result").innerHTML = `You lost with ${playerChoice} against ${computerChoice}`;
+    }
   }
-}
+  let contPlayerWins=0;
+  let contPcWins=0;
+  let contDraws=0;
+  
+  function mostrarContador(){
+    
+    return document.querySelector("#counter").innerHTML = `You won ${contPlayerWins} times, draw ${contDraws} and lost ${contPcWins}`;
+  }
+  
+  let contPartidasGanadasPl=0;
+  let contPartidasGanadasPC=0;
+  
+  function mostrarContadorPartidas(){
+    
+    if(contPlayerWins ==3){
+        contPartidasGanadasPl++;
+        contPlayerWins=0;
+        contPcWins=0;
+        contDraws=0;
+        
+      }
+      if(contPcWins==3){
+        contPartidasGanadasPC++;
+        contPcWins=0;
+        contPlayerWins=0;
+        contDraws=0;
+       
+      }
+      return document.querySelector("#winnerCounter").innerHTML = `Ganaste ${contPartidasGanadasPl} partidas y La PC ganó ${contPartidasGanadasPC} partidas`;
+    }
+  
+  //Mostrar Contador
+  
