@@ -4,17 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
+    <!--Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <title>Rock, Paper or Scissors</title>
   </head>
   <body>
     <div class="wrapper">
+      <h1>Rock, Paper or Scissors</h1>
+      <span class="mb-3">Computer Choice</span>
       <section id="computer-zone">
-        <img id="computerChoice" src="imgs/paper.png" alt="paper" />
+        <img id="computerChoice" src="imgs/pc.png" height="100" alt="pc" />
       </section>
 
-      <!-- <p id="result">PERDISTE</p> -->
-
+    
       <!-- TAREA -->
       <p id="result"></p>
       <p id="counter"></p>
@@ -22,24 +28,32 @@
       <!-- Y SI SE ANIMAN -->
       <p id="winnerCounter"></p>
       <!-- EL PRIMERO QUE LLEGA A 3 ES EL GANADOR -->
-
+      <span class="mb-1">Your Choice</span>
       <section id="player-zone">
-        <img id="playerChoice" src="imgs/rock.png" alt="rock" />
+   
+        <img id="playerChoice" src="imgs/you.png" height="150" alt="you" />
       </section>
 
       <section>
+
+        <h3>Play Now!</h3>
         <button data-choice="rock">
-          <img src="imgs/rock.png" alt="rock" />
+          <img src="imgs/rock.png" class="animate__animated animate__backInUp" alt="rock" />
         </button>
         <button data-choice="paper">
-          <img src="imgs/paper.png" alt="paper" />
+          <img src="imgs/paper.png" class="animate__animated animate__backInUp" alt="paper" />
         </button>
         <button data-choice="scissors">
-          <img src="imgs/scissors.png" alt="scissors" />
+          <img src="imgs/scissors.png" class="animate__animated animate__backInUp" alt="scissors" />
         </button>
       </section>
     </div>
 
     <script src="app.js"></script>
+     <!-- Option 2: Separate Popper and Bootstrap JS -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+   
   </body>
 </html>

@@ -12,7 +12,26 @@ body {
   background-color: black;
 }
 
+button{
+
+  background-color:#252525;
+  border: none;
+}
+
+h1, h3{
+
+  color: aliceblue;
+  text-align: center;
+}
+
+span{
+
+  color: white;
+  font-size: small;
+}
+
 .wrapper {
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,5 +45,18 @@ body {
 
 #result {
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
+
+#counter {
+  color:greenyellow;
+  font-size: 1.2rem;
+}
+
+#winnerCounter{
+
+  color: red;
+  font-size: 1.2rem;
+}
+
+

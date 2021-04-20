@@ -10,7 +10,8 @@ buttons.forEach((button) => button.addEventListener("click", startGame));
 function startGame(event) {
   // Obtener elección del jugador
   const button = event.currentTarget;
-  const playerChoice = button.dataset.choice;
+  const playerChoice = button.dataset.choice;  
+ 
 
   // Obtener elección de la computadora
   const computerChoice = getComputerChoice();
@@ -20,22 +21,11 @@ function startGame(event) {
   const winner = setWinner(playerChoice, computerChoice);
 
   // Mostrar resultado
- 
+  playerChoiceElement.setAttribute("class", "animate__animated animate__backInUp");
   playerChoiceElement.setAttribute("src", `imgs/${playerChoice}.png`);
   computerChoiceElement.setAttribute("src", `imgs/${computerChoice}.png`);
   mostrarContador();
 
-
-
-  // const result = playerWins ? "GANASTE" : "PERDISTE";
-
-  //   if (playerWins === true) {
-  //     result.textContent = "GANASTE";
-  //   } else if (!playerWins) {
-  //     result.textContent = "PERDISTE";
-  //   } else if (playerWins === "draw") {
-  //     result.textContent = "EMPATASTE";
-  //   }
 
   resultElement.textContent = winner;
 }
@@ -87,6 +77,7 @@ function setWinner(playerChoice, computerChoice) {
   function mostrarContadorPartidas(){
     
     if(contPlayerWins ==3){
+        alert("Ganaste un set de 3 Partidas!!!");
         contPartidasGanadasPl++;
         contPlayerWins=0;
         contPcWins=0;
@@ -94,14 +85,15 @@ function setWinner(playerChoice, computerChoice) {
         
       }
       if(contPcWins==3){
+        alert("Ganaste un set de 3 Partidas!!!");
         contPartidasGanadasPC++;
         contPcWins=0;
         contPlayerWins=0;
         contDraws=0;
        
       }
-      return document.querySelector("#winnerCounter").innerHTML = `Ganaste ${contPartidasGanadasPl} partidas y La PC ganó ${contPartidasGanadasPC} partidas`;
+      return document.querySelector("#winnerCounter").innerHTML = `Sets Won: You ${contPartidasGanadasPl} PC: ${contPartidasGanadasPC}`;
     }
   
-  //Mostrar Contador
+
   
